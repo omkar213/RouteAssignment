@@ -15,7 +15,7 @@ const Shop = () => {
       return (
         <div>
           {userlist.map((user) => { return (
-          <h2><Link to={`/shop/${user.id,user.url}`} key={user.id}>{user.title}</Link></h2>
+          <h2><Link to={`/shop/${user.id}`} key={user.id}>{user.title}</Link></h2>
           )})}
         </div>
       )

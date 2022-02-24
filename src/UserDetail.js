@@ -11,7 +11,7 @@ const UserDetail = () => {
       <div>
           <h1>UserImage</h1>
           <strong>User ID: {id}<br /></strong>
-          Image: <img className='usersImg' src={id.url} alt="Image" />
+          {/* Image: <img className='usersImg' src={id.url} alt="Image" /> */}
       </div>
     </>
   )
