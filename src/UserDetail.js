@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import "./App.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 
 const UserDetail = (props) => {
   // const { id } = useParams();
@@ -19,6 +20,9 @@ const UserDetail = (props) => {
   return (
     <>
       <div>
+      <div className="Back">
+        <Link className="link" to="/shop">Back to UsersList</Link>
+      </div>
         <h1>UserImage</h1>
         <strong>
           User ID: {id}

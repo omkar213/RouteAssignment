@@ -17,7 +17,7 @@ const Shop = () => {
       return (
         <div>
           {userlist.map((user) => (
-            <h2 
+            <h2 key={user.id}
             // onClick={() => props.handleClick(user.id)}
             >
               <Link to={`/shop/${user.id}`} key={user.id}>
