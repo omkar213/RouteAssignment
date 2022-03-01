@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const UserDetail = (props) => {
   const { id } = useParams();
-  console.log(id);
-  // filterBasedOnId
+  const his = useHistory();
+
   return (
     <>
       <div>
@@ -14,7 +14,8 @@ const UserDetail = (props) => {
           User ID: {id}
           <br />
         </strong>
-        Image: <img className="usersImg" src={id.url} alt="userImg" />
+        {/* Image: <img className="usersImg" src={props.avtUrl} alt="userImg" /> */}
+        Image: <img className="usersImg" src={his.location.state.imgUrl} alt="userImg" />
       </div>
     </>
   );

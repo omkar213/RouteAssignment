@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 import "./App.css";
-import { Link } from "react-router-dom";
-const Shop = () => {
+
+const Shop = (props) => {
   const [userlist, setuserlist] = useState([]);
+
+  // Fetching all users
   useEffect(() => {
     // const URL = 'https://jsonplaceholder.typicode.com/photos?_start=0&_limit=5';
     const URL = "https://api.github.com/users";
@@ -12,17 +15,22 @@ const Shop = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleUserClick = (user) => {
+    console.log(props.history);
+    // props.handleClick(user);
+    const obj = {
+      imgUrl: user.avatar_url,
+    };
+    props.history.push(`/shop/${user.id}`, obj);
+  };
+
   const renderUserList = (userlist) => {
     if (userlist?.length > 0) {
       return (
         <div>
           {userlist.map((user) => (
-            <h2 
-            // onClick={() => props.handleClick(user.id)}
-            >
-              <Link to={`/shop/${user.id}`} key={user.id}>
-                {user.login}
-              </Link>
+            <h2 key={user.id} onClick={() => handleUserClick(user)}>
+              {user.login}
             </h2>
           ))}
         </div>
@@ -36,6 +44,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
-
-//'/shop/${user.id}'
+export default withRouter(Shop);
